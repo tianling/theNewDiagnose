@@ -31,12 +31,36 @@ if(!empty($_POST['sentence'])){
 
     }
 
+    $stopfile = fopen('./stopWrods/stop1.txt','r') or die('unable to open file!');
+
+    //$stop = fread($stopfile,filesize('./stopWrods/stop1.txt'));
+    while(!feof($stopfile)) {
+        $stop = fgets($stopfile);
+        $stop = str_replace("\n","",$stop);
+        $stop = str_replace("\r","",$stop);
+        $stop = str_replace("\r\n","",$stop);
+        $stopArray[] = $stop;
+
+    }
+
+    fclose($stopfile);
+
+    foreach($dataArray as $key=>$value){
+
+        foreach($stopArray as $stop){
+
+            if($value == $stop){
+
+                unset($dataArray[$key]);
+            }
+        }
+    }
+
     var_dump($dataArray);
 
 
     $so->close();
 }
-
 
 
 ?>

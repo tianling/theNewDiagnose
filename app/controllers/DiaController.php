@@ -14,6 +14,23 @@ class DiaController extends BaseController{
     public function diaGet(){
         $sentence = Input::get('sentence');
 
+        $dataArray  = $this->word_cws($sentence);
+
+//        var_dump($dataArray);
+
+        $wordArray = $this->stopWords_clear($dataArray);
+
+        var_dump($wordArray);
+
+
+    }
+
+
+    /*
+     * 基于SCWS分词引擎进行分词
+     **/
+    private function word_cws($sentence){
+
         $so = scws_new();
         $so->set_charset('utf-8');
         $so->set_dict(storage_path().'/path/dict.utf8.xdb');
@@ -33,6 +50,17 @@ class DiaController extends BaseController{
 
         }
 
+        $so->close();
+
+        return $dataArray;
+
+    }
+
+
+    /*
+     * 去停用词
+     **/
+    private function stopWords_clear($dataArray){
         $stopfile = fopen(storage_path().'/stopWords/stop1.txt','r') or die('unable to open file!');
 
 
@@ -58,11 +86,6 @@ class DiaController extends BaseController{
             }
         }
 
-        var_dump($dataArray);
-
-
-        $so->close();
-
-
+        return $dataArray;
     }
 }

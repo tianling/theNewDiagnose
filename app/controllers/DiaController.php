@@ -16,11 +16,11 @@ class DiaController extends BaseController{
 
         $dataArray  = $this->word_cws($sentence);
 
-//        var_dump($dataArray);
-
         $wordArray = $this->stopWords_clear($dataArray);
 
-        var_dump($wordArray);
+        $symlist = $this->symptom_maching($wordArray);
+
+        var_dump($symlist);
 
 
     }
@@ -87,5 +87,26 @@ class DiaController extends BaseController{
         }
 
         return $dataArray;
+    }
+
+
+    /*
+     * 症状库匹配
+     **/
+    private function symptom_maching($dataArray){
+        $symptom = new Symptom();
+
+        $sym = array();
+        foreach($dataArray as $value){
+            $match = $symptom::where('symptom_name','=',$value)->first();
+
+            if(isset($match->symptom_id)){
+                $sym[] =  $match->symptom_id;
+            }
+        }
+
+        return $sym;
+
+
     }
 }

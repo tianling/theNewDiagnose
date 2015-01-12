@@ -134,4 +134,22 @@ class DiaController extends BaseController{
         return $diagnose->save();
     }
 
+
+    /*
+     * 词向量生成
+     **/
+    private function word_vector($matchData){
+
+        $symData = Symptom::all();
+
+        for($i = 0;$i<count($matchData);$i++){
+            foreach($symData as $symvalue){
+                if($matchData[$i] == $symData->symptom_id){
+                    
+                }
+            }
+        }
+
+    }
+
 }

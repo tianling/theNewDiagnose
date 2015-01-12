@@ -20,7 +20,9 @@ class DiaController extends BaseController{
 
         $symlist = $this->symptom_maching($wordArray);
 
-        var_dump($symlist);
+        $log = $this->diagnose_log($sentence,$symlist);
+
+        var_dump($log);
 
 
     }
@@ -109,4 +111,27 @@ class DiaController extends BaseController{
 
 
     }
+
+
+    /*
+     * 症状信息记录
+     **/
+    private function diagnose_log($diagnoseData,$matchData){
+
+        $diagnose = new DiagnoseLog();
+
+        $diagnose->content = $diagnoseData;
+
+        $str = '';
+        foreach($matchData as $value){
+            $str .= ','.$value;
+        }
+
+        $str = substr($str,1,strlen($str));
+
+        $diagnose->match = $str;
+
+        return $diagnose->save();
+    }
+
 }

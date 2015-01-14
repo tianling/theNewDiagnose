@@ -22,7 +22,9 @@ class DiaController extends BaseController{
 
         $log = $this->diagnose_log($sentence,$symlist);
 
-        var_dump($log);
+        $vector = $this->word_vector($symlist);
+
+        var_dump($vector);
 
 
     }
@@ -140,16 +142,35 @@ class DiaController extends BaseController{
      **/
     private function word_vector($matchData){
 
-        $symData = Symptom::all();
+        $vectorArray = $this->word_vector_init();
 
-        for($i = 0;$i<count($matchData);$i++){
-            foreach($symData as $symvalue){
-                if($matchData[$i] == $symData->symptom_id){
-                    
-                }
-            }
+        foreach($matchData as $matchvalue){
+            $vectorArray[$matchvalue - 1] ++;
+
         }
 
+
+        return json_encode($vectorArray);
+
+    }
+
+
+    /*
+     * 词向量初始化
+     **/
+    private function word_vector_init(){
+
+        $vectorArray = array();
+
+        $symCount = Symptom::all()->count();
+
+        for($i = 0;$i<$symCount;$i++){
+
+            $vectorArray[$i] = 0;
+
+        }
+
+        return $vectorArray;
     }
 
 }

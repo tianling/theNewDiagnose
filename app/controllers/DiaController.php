@@ -37,8 +37,9 @@ class DiaController extends BaseController{
 
         $so = scws_new();
         $so->set_charset('utf-8');
-        $so->set_dict(storage_path().'/path/dict.utf8.xdb');
+        $so->set_dict(storage_path().'/path/dict1.utf8.xdb');
         $so->set_ignore(true);
+//        $so->set_multi(true);
 
         // 这里没有调用 set_dict 和 set_rule 系统会自动试调用 ini 中指定路径下的词典和规则文件
         $so->send_text($sentence);

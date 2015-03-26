@@ -16,3 +16,5 @@
 Route::get('/','DiaController@index');
 
 Route::post('diaGet','DiaController@diaGet');
+
+Route::get('showlog','DiaController@showLog');

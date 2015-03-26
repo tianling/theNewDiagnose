@@ -10,6 +10,10 @@ class DiaController extends BaseController{
         return View::make("site.show");
     }
 
+    public function showLog(){
+        return View::make("site.tables-basic");
+    }
+
 
     public function diaGet(){
         $sentence = Input::get('sentence');

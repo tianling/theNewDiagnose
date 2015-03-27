@@ -11,8 +11,10 @@ class DiaController extends BaseController{
     }
 
     public function showLog(){
+
         return View::make("site.showlogs");
     }
+
 
 
     public function diaGet(){
@@ -24,7 +26,7 @@ class DiaController extends BaseController{
 
         $symlist = $this->symptom_maching($wordArray);
 
-        $log = $this->diagnose_log($sentence,$symlist);
+        $log = $this->diagnose_log($sentence,$symlist,$wordArray);
 
         $vector = $this->word_vector($symlist);
 
@@ -123,22 +125,33 @@ class DiaController extends BaseController{
     /*
      * 症状信息记录
      **/
-    private function diagnose_log($diagnoseData,$matchData){
-
+    private function diagnose_log($diagnoseData,$matchData,$wordArray){
+        //建立新日志并录入初始信息
         $diagnose = new DiagnoseLog();
-
         $diagnose->content = $diagnoseData;
 
+        //录入处理过后的带匹配词组
         $str = '';
-        foreach($matchData as $value){
-            $str .= ','.$value;
+        foreach($wordArray as $word){
+            $str .= $word.',';
+        }
+        $str = substr($str,0,strlen($str)-1);
+        $diagnose->words = $str;
+
+        $diagnose->save();
+
+        $log_id = $diagnose->id;
+
+        //录入匹配数据
+        foreach($matchData as $match){
+            $logmatch = new DiagMatch();
+            $logmatch->l_id = $log_id;
+            $logmatch->m_id = $match;
+            $logmatch->save();
         }
 
-        $str = substr($str,1,strlen($str));
 
-        $diagnose->match = $str;
 
-        return $diagnose->save();
     }
 
 

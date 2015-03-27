@@ -46,11 +46,11 @@
 					
 					<!-- logo -->
 					<div class="logo">
-						<a href="dashboard-1.html" class="logo-expanded">
+						<a href="<?php echo url('/');?>" class="logo-expanded">
 							<img src="assets/images/logo@2x.png" width="80" alt="" />
 						</a>
 						
-						<a href="dashboard-1.html" class="logo-collapsed">
+						<a href="<?php echo url('/');?>" class="logo-collapsed">
 							<img src="assets/images/logo-collapsed@2x.png" width="40" alt="" />
 						</a>
 					</div>
@@ -85,7 +85,7 @@
 						</a>
 						<ul>
 							<li>
-								<a href="<?php echo url('/');?>">
+								<a href="<?php echo url('diaSet');?>">
 									<span class="title">添加新训练对象</span>
 								</a>
 							</li>
@@ -101,7 +101,7 @@
 						</a>
 						<ul>
 							<li class="active">
-								<a href="<?php echo url('showlog');?>">
+								<a href="<?php echo url('/');?>">
 									<span class="title">训练历史</span>
 								</a>
 							</li>

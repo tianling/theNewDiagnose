@@ -13,8 +13,8 @@
 
 
 
-Route::get('/','DiaController@index');
+Route::get('diaSet','DiaController@index');
 
 Route::post('diaGet','DiaController@diaGet');
 
-Route::get('showlog','LogController@showLog');
+Route::get('/','LogController@showLog');

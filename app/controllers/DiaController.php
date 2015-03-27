@@ -11,7 +11,7 @@ class DiaController extends BaseController{
     }
 
     public function showLog(){
-        return View::make("site.tables-basic");
+        return View::make("site.showlogs");
     }
 
 

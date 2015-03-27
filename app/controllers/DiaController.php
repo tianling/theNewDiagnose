@@ -10,11 +10,6 @@ class DiaController extends BaseController{
         return View::make("site.show");
     }
 
-    public function showLog(){
-
-        return View::make("site.showlogs");
-    }
-
 
 
     public function diaGet(){

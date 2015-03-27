@@ -11,4 +11,9 @@ class DiagnoseLog extends Eloquent{
 //    public $timestamps = false;
 
     protected $primaryKey = 'id';
+
+
+    public function diagMatch(){
+        return $this->hasMany('DiagMatch','l_id','id');
+    }
 }

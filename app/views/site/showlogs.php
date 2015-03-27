@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="assets/css/xenon-skins.css">
 	<link rel="stylesheet" href="assets/css/custom.css">
 
+
 	<script src="assets/js/jquery-1.11.1.min.js"></script>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -146,76 +147,73 @@
 			<!-- Table Styles -->
 			<div class="row">
 				<div class="col-md-12">
-				
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Table Styles</h3>
-							
-							<div class="panel-options">
-								<a href="#">
-									<i class="linecons-cog"></i>
-								</a>
-								
-								<a href="#" data-toggle="panel">
-									<span class="collapse-icon">&ndash;</span>
-									<span class="expand-icon">+</span>
-								</a>
-								
-								<a href="#" data-toggle="reload">
-									<i class="fa-rotate-right"></i>
-								</a>
-								
-								<a href="#" data-toggle="remove">
-									&times;
-								</a>
-							</div>
-						</div>
 
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">训练样本记录</h3>
 
-						<div class="panel-body panel-border">
-						
-							<div class="row">
-								<div class="col-sm-12">
-								
-									<!-- Table Model 2 -->
-									<strong>Table Model 2</strong>
-									
-									<table class="table table-model-2 table-hover">
-										<thead>
-											<tr>
-												<th>#</th>
-												<th>Name</th>
-												<th>Address</th>
-											</tr>
-										</thead>
-										
-										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Arlind</td>
-												<td>Nushi</td>
-											</tr>
-											
-											<tr>
-												<td>2</td>
-												<td>Art</td>
-												<td>Ramadani</td>
-											</tr>
-											
-											<tr>
-												<td>3</td>
-												<td>Filan</td>
-												<td>Fisteku</td>
-											</tr>
-										</tbody>
-									</table>
-								
-								</div>
-							</div>
-						
-						</div>
-						
-					</div>
+                            <div class="panel-options">
+                                <a href="#" data-toggle="panel">
+                                    <span class="collapse-icon">&ndash;</span>
+                                    <span class="expand-icon">+</span>
+                                </a>
+                                <a href="#" data-toggle="remove">
+                                    &times;
+                                </a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                        <script type="text/javascript">
+                            jQuery(document).ready(function($)
+                            {
+                                $("#example-1").dataTable({
+                                    aLengthMenu: [
+                                        [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]
+                                    ]
+                                });
+                            });
+                        </script>
+
+                        <table id="example-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>原始输入</th>
+                            <th>关键字</th>
+                            <th>匹配结果</th>
+                            <th>labels</th>
+
+                        </tr>
+                        </thead>
+
+                        <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>原始输入</th>
+                            <th>关键字</th>
+                            <th>匹配结果</th>
+                            <th>labels</th>
+
+                        </tr>
+                        </tfoot>
+
+                        <tbody>
+                        <?php foreach($data as $key=>$value){?>
+                            <tr>
+                                <td><?php echo $key;?></td>
+                                <td><?php echo $value['content'];?></td>
+                                <td><?php echo $value['words'];?></td>
+                                <td><?php echo $value['target'];?></td>
+                                <td><?php echo $value['label'];?></td>
+                            </tr>
+                        <?php }?>
+
+                        </tbody>
+                        </table>
+
+                        </div>
+                    </div>
 					
 				</div>
 			</div>
@@ -252,17 +250,30 @@
 
 
 
-	<!-- Bottom Scripts -->
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/TweenMax.min.js"></script>
-	<script src="assets/js/resizeable.js"></script>
-	<script src="assets/js/joinable.js"></script>
-	<script src="assets/js/xenon-api.js"></script>
-	<script src="assets/js/xenon-toggles.js"></script>
-
-
 	<!-- JavaScripts initializations and stuff -->
 	<script src="assets/js/xenon-custom.js"></script>
+
+
+    <link rel="stylesheet" href="assets/js/datatables/dataTables.bootstrap.css">
+
+    <!-- Bottom Scripts -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/TweenMax.min.js"></script>
+    <script src="assets/js/resizeable.js"></script>
+    <script src="assets/js/joinable.js"></script>
+    <script src="assets/js/xenon-api.js"></script>
+    <script src="assets/js/xenon-toggles.js"></script>
+    <script src="assets/js/datatables/js/jquery.dataTables.min.js"></script>
+
+
+    <!-- Imported scripts on this page -->
+    <script src="assets/js/datatables/dataTables.bootstrap.js"></script>
+    <script src="assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+    <script src="assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
+
+
+    <!-- JavaScripts initializations and stuff -->
+    <script src="assets/js/xenon-custom.js"></script>
 
 </body>
 </html>

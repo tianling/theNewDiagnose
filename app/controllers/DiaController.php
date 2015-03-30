@@ -7,7 +7,7 @@
 class DiaController extends BaseController{
 
     public function index(){
-        return View::make("site.show");
+        return View::make("site.diaSet");
     }
 
 

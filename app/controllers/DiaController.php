@@ -23,9 +23,11 @@ class DiaController extends BaseController{
 
         $log = $this->diagnose_log($sentence,$symlist,$wordArray);
 
-        $vector = $this->word_vector($symlist);
+//        $vector = $this->word_vector($symlist);
+//
+//        var_dump($vector);
 
-        var_dump($vector);
+        return Redirect::intended('/');
 
 
     }
@@ -145,6 +147,28 @@ class DiaController extends BaseController{
             $logmatch->save();
         }
 
+
+
+    }
+
+
+    //ajax生成词向量
+    public function ajax_get_vector(){
+        $id = Input::get('id');
+
+        $logData = DiagnoseLog::find($id);
+        $matchData = $logData->diagMatch;
+
+        $matchArray = array();
+        foreach($matchData as $log){
+
+            $matchArray[] = $log->m_id;
+        }
+
+        $vector = $this->word_vector($matchArray);
+
+        echo $vector;
+        exit();
 
 
     }

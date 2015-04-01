@@ -25,6 +25,7 @@ class LogController extends BaseController{
             $idStr = substr($idStr,0,strlen($idStr)-1);
 
             $logData[] = array(
+                'id'=>$log->id,
                 'content'=>$log->content,
                 'words'=>$log->words,
                 'target'=>$str,

@@ -183,6 +183,7 @@
                             <th>关键字</th>
                             <th>匹配结果</th>
                             <th>labels</th>
+                            <th>操作</th>
 
                         </tr>
                         </thead>
@@ -194,6 +195,7 @@
                             <th>关键字</th>
                             <th>匹配结果</th>
                             <th>labels</th>
+                            <th>操作</th>
 
                         </tr>
                         </tfoot>
@@ -206,6 +208,7 @@
                                 <td><?php echo $value['words'];?></td>
                                 <td><?php echo $value['target'];?></td>
                                 <td><?php echo $value['label'];?></td>
+                                <td><a href="#" onclick="getVector(<?php echo $value['id'];?>)">查看词向量</a></td>
                             </tr>
                         <?php }?>
 
@@ -249,7 +252,16 @@
 		</div>
 
 
+    <script>
+        function getVector(id){
+            $.post("<?php echo url('vectorGet')?>",{
+                id:id
+            },function(data,textStatus){
 
+                alert(data);
+            });
+        }
+    </script>
 	<!-- JavaScripts initializations and stuff -->
 	<script src="assets/js/xenon-custom.js"></script>
 

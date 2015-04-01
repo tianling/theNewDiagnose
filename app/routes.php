@@ -18,3 +18,5 @@ Route::get('diaSet','DiaController@index');
 Route::post('diaGet','DiaController@diaGet');
 
 Route::get('/','LogController@showLog');
+
+Route::post('vectorGet','DiaController@ajax_get_vector');

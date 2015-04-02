@@ -21,11 +21,8 @@ class DiaController extends BaseController{
 
         $symlist = $this->symptom_maching($wordArray);
 
-        $log = $this->diagnose_log($sentence,$symlist,$wordArray);
+        $this->diagnose_log($sentence,$symlist,$wordArray);
 
-//        $vector = $this->word_vector($symlist);
-//
-//        var_dump($vector);
 
         return Redirect::intended('/');
 
@@ -188,6 +185,63 @@ class DiaController extends BaseController{
 
 
         return json_encode($vectorArray);
+
+    }
+
+
+    /*
+     * 导出词向量及科室labels为xml文件
+     **/
+    public function vectorXml(){
+        $logs = DiagnoseLog::all();
+
+
+        $doc = new DOMDocument('1.0','utf-8');
+        $doc->formatOutput = true;
+
+        $r = $doc->createElement( "diagnose" );
+        $doc->appendChild( $r );
+
+        foreach( $logs as $log )
+        {
+            $b = $doc->createElement( "diagnose" );
+
+            $matchData = $log->diagMatch;
+
+            $matchArray = array();
+            foreach($matchData as $log){
+
+                $matchArray[] = $log->m_id;
+            }
+
+            $vectorstr = $this->word_vector($matchArray);
+
+            $vector = $doc->createElement( "vector" );
+            $vector->appendChild(
+                $doc->createTextNode( $vectorstr )
+            );
+            $b->appendChild( $vector );
+
+            $office = $doc->createElement( "office" );
+
+            if($log->office != ''){
+                $office->appendChild(
+                    $doc->createTextNode( $log->office )
+                );
+            }else {
+                $office->appendChild(
+                    $doc->createTextNode('000')
+                );
+            }
+
+            $b->appendChild( $office);
+
+
+            $r->appendChild( $b );
+        }
+
+        echo $doc->saveXML();
+        $doc->save("01.xml");
 
     }
 

@@ -16,4 +16,8 @@ class DiagnoseLog extends Eloquent{
     public function diagMatch(){
         return $this->hasMany('DiagMatch','l_id','id');
     }
+
+    public function officeData(){
+        return $this->hasOne('Office','office_id','office');
+    }
 }

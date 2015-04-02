@@ -183,6 +183,7 @@
                             <th>关键字</th>
                             <th>匹配结果</th>
                             <th>labels</th>
+                            <th>科室</th>
                             <th>操作</th>
 
                         </tr>
@@ -195,6 +196,7 @@
                             <th>关键字</th>
                             <th>匹配结果</th>
                             <th>labels</th>
+                            <th>科室</th>
                             <th>操作</th>
 
                         </tr>
@@ -208,14 +210,19 @@
                                 <td><?php echo $value['words'];?></td>
                                 <td><?php echo $value['target'];?></td>
                                 <td><?php echo $value['label'];?></td>
-                                <td><a href="#" onclick="getVector(<?php echo $value['id'];?>)">查看词向量</a></td>
+                                <td><?php echo $value['office'];?></td>
+                                <td>
+                                    <a href="#" onclick="getVector(<?php echo $value['id'];?>)">查看词向量</a>|
+                                    <a href="<?php echo url('officeSet');?>?id=<?php echo $value['id'];?>">指定科室</a>
+                                </td>
                             </tr>
                         <?php }?>
 
                         </tbody>
                         </table>
-
+                            <button class="btn btn-info btn-single pull-right" onclick="saveXml()">导出词向量及科室</button>
                         </div>
+
                     </div>
 					
 				</div>
@@ -259,6 +266,12 @@
             },function(data,textStatus){
 
                 alert(data);
+            });
+        }
+
+        function saveXml(){
+            $.get("<?php echo url('xmlMake');?>", function(result){
+
             });
         }
     </script>

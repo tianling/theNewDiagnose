@@ -20,3 +20,7 @@ Route::post('diaGet','DiaController@diaGet');
 Route::get('/','LogController@showLog');
 
 Route::post('vectorGet','DiaController@ajax_get_vector');
+
+Route::match(array('GET','POST'),'officeSet','LogController@officeSet');
+
+Route::get('xmlMake','DiaController@vectorXml');

@@ -26,8 +26,10 @@
       <file leaf-file-name="xmlGet.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/xmlGet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="27" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.5731167" vertical-offset="309" max-vertical-offset="986">
-              <folding />
+            <state line="14" column="28" selection-start="374" selection-end="374" vertical-scroll-proportion="0.35155097" vertical-offset="0" max-vertical-offset="1122">
+              <folding>
+                <element signature="e#25#54#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -170,7 +172,9 @@
     <entry file="file://$PROJECT_DIR$/xmlGet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="13" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
-          <folding />
+          <folding>
+            <element signature="e#25#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -183,8 +187,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xmlGet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="27" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.5731167" vertical-offset="309" max-vertical-offset="986">
-          <folding />
+        <state line="14" column="28" selection-start="374" selection-end="374" vertical-scroll-proportion="0.35155097" vertical-offset="0" max-vertical-offset="1122">
+          <folding>
+            <element signature="e#25#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

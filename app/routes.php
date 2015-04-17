@@ -26,3 +26,5 @@ Route::match(array('GET','POST'),'officeSet','LogController@officeSet');
 Route::get('xmlMake','DiaController@vectorXml');
 
 Route::post('login','AdminController@login');
+
+Route::get('learn','TrainController@learn');

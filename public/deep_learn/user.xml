@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<users>
+    <user id="1000001">
+        <username>Admin</username>
+        <email>admin@live.cn</email>
+        <age>23</age>
+        <sex>男</sex>
+    </user>
+    <user id="1000002">
+        <username>Admin2</username>
+        <email>admin2@live.cn</email>
+        <age>22</age>
+        <sex>男</sex>
+    </user>
+    <user id="1000003">
+        <username>Admin3</username>
+        <email>admin3@live.cn</email>
+        <age>27</age>
+        <sex>男</sex>
+    </user>
+    <user id="1000004">
+        <username>Admin4</username>
+        <email>admin4@live.cn</email>
+        <age>25</age>
+        <sex>女</sex>
+    </user>
+    <user id="1000005">
+        <username>Admin5</username>
+        <email>admin5@live.cn</email>
+        <age>20</age>
+        <sex>男</sex>
+    </user>
+    <user id="1000006">
+        <username>Admin6</username>
+        <email>admin6@live.cn</email>
+        <age>23</age>
+        <sex>女</sex>
+    </user>
+</users>

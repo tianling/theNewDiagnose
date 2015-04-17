@@ -62,16 +62,16 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
-        'mysql' => array(
-            'driver'    => 'mysql',
-            'host'      => '127.0.0.1',
-            'database'  => 'diagnose',
-            'username'  => 'root',
-            'password'  => 'boshangp2p',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-        ),
+//        'mysql' => array(
+//            'driver'    => 'mysql',
+//            'host'      => '127.0.0.1',
+//            'database'  => 'diagnose',
+//            'username'  => 'root',
+//            'password'  => 'boshangp2p',
+//            'charset'   => 'utf8',
+//            'collation' => 'utf8_unicode_ci',
+//            'prefix'    => '',
+//        ),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',

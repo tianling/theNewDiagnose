@@ -199,19 +199,20 @@ class DiaController extends BaseController{
         $doc = new DOMDocument('1.0','utf-8');
         $doc->formatOutput = true;
 
-        $r = $doc->createElement( "diagnose" );
+        $r = $doc->createElement( "diagnose-label-vector" );
         $doc->appendChild( $r );
 
         foreach( $logs as $log )
         {
+
             $b = $doc->createElement( "diagnose" );
 
             $matchData = $log->diagMatch;
 
             $matchArray = array();
-            foreach($matchData as $log){
+            foreach($matchData as $match){
 
-                $matchArray[] = $log->m_id;
+                $matchArray[] = $match->m_id;
             }
 
             $vectorstr = $this->word_vector($matchArray);
@@ -239,6 +240,7 @@ class DiaController extends BaseController{
 
             $r->appendChild( $b );
         }
+
 
         echo $doc->saveXML();
         $doc->save("01.xml");

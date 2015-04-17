@@ -19,6 +19,8 @@ class AdminController extends BaseController{
 //        var_dump($admin->admin_name);
 //        die;
 
+        Session::put('key', 'value');
+
         Auth::login($admin);
 
         echo Auth::user()->admin_id;

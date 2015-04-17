@@ -9,8 +9,6 @@ class LogController extends BaseController{
     //日志数据展示
     public function showLog(){
 
-        echo Auth::user()->admin_id;
-        die;
 
         $logs = DiagnoseLog::orderBy('created_at','DESC')->get();
 

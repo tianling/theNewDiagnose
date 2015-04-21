@@ -270,8 +270,8 @@
         }
 
         function saveXml(){
-            $.get("<?php echo url('xmlMake');?>", function(result){
-
+            $.get("<?php echo url('xmlMake');?>", function(data,result){
+                alert(data);
             });
         }
     </script>

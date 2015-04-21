@@ -11,13 +11,13 @@
 |
 */
 
-
+Route::get('/','TrainController@index');
 
 Route::get('diaSet','DiaController@index');
 
 Route::post('diaGet','DiaController@diaGet');
 
-Route::get('/','LogController@showLog');
+Route::get('show','LogController@showLog');
 
 Route::post('vectorGet','DiaController@ajax_get_vector');
 
@@ -28,3 +28,7 @@ Route::get('xmlMake','DiaController@vectorXml');
 Route::post('login','AdminController@login');
 
 Route::get('learn','TrainController@learn');
+
+Route::post('predict','TrainController@predict');
+
+Route::get('register','HomeController@register');

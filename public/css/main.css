@@ -1,0 +1,43 @@
+*{
+	margin:0;
+	padding:0;	
+}
+body{
+	background:#E6DAB4;	
+}
+
+
+#Wrap{
+	width:800px;
+	height:600px;
+	background:url(../images/background.gif) no-repeat;
+	margin:0 auto;
+	position:relative;	
+}
+
+#contain{
+    width:0px;
+    height:388px;
+    position:relative;
+    top:22%;
+    left:21%;
+    overflow:hidden;
+    opacity:0.8;
+    z-index:3;
+    background:url(../images/contain.jpg);
+    -webkit-border-radius:5px;
+    -webkit-box-shadow:1px 1px 5px 2px #151513;
+    -webkit-transition:all 1s linear 0.2s;
+}
+.choose{
+    width:472px;
+    height:356px;
+    background:url(../images/choosebackground.png);
+    position:relative;
+    float:left;
+    top:1%;
+    margin-left:7px;
+    margin-right:9px;
+    z-index:5;
+    -webkit-transition:all 1s ease 0.3s;
+}

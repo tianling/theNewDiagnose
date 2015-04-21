@@ -7,7 +7,7 @@
 class Office extends Eloquent{
     protected $table = 'office';
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'office_id';
 
     public $timestamps = false;
 }

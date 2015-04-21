@@ -63,7 +63,7 @@ class LogController extends BaseController{
         if($office!=null){
             $log->office = $office;
             $log->save();
-            return Redirect::intended('/');
+            return Redirect::intended('show');
         }
 
         $office = Office::all();

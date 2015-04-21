@@ -21,10 +21,10 @@ class DiaController extends BaseController{
 
         $symlist = $this->symptom_maching($wordArray);
 
-        $this->diagnose_log($sentence,$symlist,$wordArray);
+        #$this->diagnose_log($sentence,$symlist,$wordArray);
 
 
-        return Redirect::intended('/');
+        return Redirect::intended('show');
 
 
     }
@@ -37,7 +37,7 @@ class DiaController extends BaseController{
 
         $so = scws_new();
         $so->set_charset('utf-8');
-        $so->set_dict(storage_path().'/path/dict1.utf8.xdb');
+        $so->set_dict(storage_path().'/path/dict.utf8.xdb');
         $so->set_ignore(true);
 //        $so->set_multi(true);
 
@@ -242,8 +242,11 @@ class DiaController extends BaseController{
         }
 
 
-        echo $doc->saveXML();
-        $doc->save("01.xml");
+        //echo $doc->saveXML();
+        if($doc->save("deep_learn/01.xml")){
+            echo "导出成功";
+        }
+
 
     }
 

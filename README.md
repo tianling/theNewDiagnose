@@ -6,4 +6,4 @@ theNewDiagnose
 <li>PHP中文分词扩展SCWS</li>
 <li>Laravel4.2</li>
 <li>Python2.7</li>
-<li>Python numpy & skleran工具包</li>
+<li>Python numpy & sklearn工具包</li>
